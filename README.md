@@ -3,7 +3,7 @@
 This repository implements a Enhanched Super-Resolution Generative Adversarial Network model to enhance the resolution of low-quality images using deep learning.
 
 ## Project Structure
-saved/ Predictions
+saved/ Predictions /n
 config.py # Configuration file for hyperparameters 
 dataset.py # Data loading and preprocessing
 loss.py # VGG loss
