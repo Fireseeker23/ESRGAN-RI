@@ -2,6 +2,7 @@ import os
 import cv2
 from skimage.metrics import peak_signal_noise_ratio as psnr
 from skimage.metrics import structural_similarity as ssim
+import matplotlib.pyplot as plt
 
 gt_folder = "image_super_resolution_dataset/scaling_4x/test/HR"
 pred_folder = "saved"
@@ -33,3 +34,26 @@ print(f"\nAverage PSNR over {len(psnr_scores)} images: {avg_psnr:.2f} dB")
 
 avg_ssim = sum(ssim_scores) / len(ssim_scores)
 print(f"\nAverage SSIM over {len(ssim_scores)} images: {avg_ssim:.2f}")
+
+
+plt.figure(figsize=(20, 5))
+plt.plot(psnr_scores, marker='o', label='PSNR')
+plt.xticks(range(len(psnr_scores)))
+plt.title('PSNR per Image')
+plt.xlabel('Image Index')
+plt.ylabel('PSNR (dB)')
+plt.grid(True)
+plt.legend()
+
+
+plt.figure(figsize=(20, 5))
+plt.plot(ssim_scores, marker='s', color='orange', label='SSIM')
+plt.xticks(range(len(ssim_scores)))
+plt.title('SSIM per Image')
+plt.xlabel('Image Index')
+plt.ylabel('SSIM')
+plt.grid(True)
+plt.legend()
+
+plt.tight_layout()
+plt.show()
