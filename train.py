@@ -111,10 +111,10 @@ def main():
             opt_disc,
             config.LEARNING_RATE,
         )
-
-    plot_examples("tests",gen)
-    import sys
-    sys.exit()
+    if try_model == True:
+        plot_examples("tests",gen)
+        import sys
+        sys.exit()
 
     for epoch in range(config.NUM_EPOCHS):
         tb_step = train_fn(
